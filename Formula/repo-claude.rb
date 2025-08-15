@@ -5,7 +5,7 @@
 class RepoClaude < Formula
   desc "Multi-agent orchestration using Repo tool and Claude Code"
   homepage "https://github.com/taokim/repo-claude"
-  version "0.2.0"
+  version "0.2.1"
   license "MIT"
 
   depends_on "git"
@@ -13,16 +13,16 @@ class RepoClaude < Formula
 
   on_macos do
     on_intel do
-      url "https://github.com/taokim/repo-claude/releases/download/v0.2.0/repo-claude_Darwin_x86_64.tar.gz"
-      sha256 "b17f57afb6eb3a906b1deb806f285d587865757060f747235abd0867b27be5f7"
+      url "https://github.com/taokim/repo-claude/releases/download/v0.2.1/repo-claude_Darwin_x86_64.tar.gz"
+      sha256 "aa3bdd2cb86079e2cfbbf6fb29245ef1b6da785233ad33763c7f97b55dbd8f18"
 
       def install
         bin.install "rc"
       end
     end
     on_arm do
-      url "https://github.com/taokim/repo-claude/releases/download/v0.2.0/repo-claude_Darwin_arm64.tar.gz"
-      sha256 "5dfec5fdaa8f1d7cb681a374b0f0073f15ec076181f7edf66bf05d16005a7711"
+      url "https://github.com/taokim/repo-claude/releases/download/v0.2.1/repo-claude_Darwin_arm64.tar.gz"
+      sha256 "a17064b780359cdc2732847573adee77a8c51a728d8ed03474e8511a5952dc3a"
 
       def install
         bin.install "rc"
@@ -33,8 +33,8 @@ class RepoClaude < Formula
   on_linux do
     on_intel do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/taokim/repo-claude/releases/download/v0.2.0/repo-claude_Linux_x86_64.tar.gz"
-        sha256 "f45d84ba6e0ff8cf438454ed698cde7f49eb5b41c8c329ef9291fa3b45d527cd"
+        url "https://github.com/taokim/repo-claude/releases/download/v0.2.1/repo-claude_Linux_x86_64.tar.gz"
+        sha256 "f3a6864fa4a45554de1a09462798fe6bf3babdb04e4886a4b78f70b7494e04fc"
 
         def install
           bin.install "rc"
@@ -43,8 +43,8 @@ class RepoClaude < Formula
     end
     on_arm do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/taokim/repo-claude/releases/download/v0.2.0/repo-claude_Linux_arm64.tar.gz"
-        sha256 "6d24bd4e46cf8590b0c297e1ec652217b37f157ed85c500fef973eab6b2485b8"
+        url "https://github.com/taokim/repo-claude/releases/download/v0.2.1/repo-claude_Linux_arm64.tar.gz"
+        sha256 "9495d13b1238f6a24df39928eb3ece1d74ccf72487bf11724588e25843e08487"
 
         def install
           bin.install "rc"
