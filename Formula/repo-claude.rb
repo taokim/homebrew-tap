@@ -5,21 +5,24 @@
 class RepoClaude < Formula
   desc "Multi-agent orchestration using Repo tool and Claude Code"
   homepage "https://github.com/taokim/repo-claude"
-  version "0.1.2"
+  version "0.1.3"
   license "MIT"
 
+  depends_on "git"
+  depends_on "repo"
+
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/taokim/repo-claude/releases/download/v0.1.2/repo-claude_Darwin_x86_64.tar.gz"
-      sha256 "b4ca348a0570fbd09d02d47a76df2a69fd509a98cf0a14a7f64b460a4010eb0f"
+    on_intel do
+      url "https://github.com/taokim/repo-claude/releases/download/v0.1.3/repo-claude_Darwin_x86_64.tar.gz"
+      sha256 "0d76d12425cf4bb82baa2f541aec496237d3e515619da1c3faa046e99d99c250"
 
       def install
         bin.install "rc"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/taokim/repo-claude/releases/download/v0.1.2/repo-claude_Darwin_arm64.tar.gz"
-      sha256 "d2f52cc736a0ffce5c9d778118ceed6c009bfc20dfde31ed3b83a7d21f3de66d"
+    on_arm do
+      url "https://github.com/taokim/repo-claude/releases/download/v0.1.3/repo-claude_Darwin_arm64.tar.gz"
+      sha256 "4f7454d3b0ed4458df7d5f22fbdd437c182bf36384f2f4d38ea3a9441268ffee"
 
       def install
         bin.install "rc"
@@ -28,26 +31,27 @@ class RepoClaude < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/taokim/repo-claude/releases/download/v0.1.2/repo-claude_Linux_x86_64.tar.gz"
-      sha256 "ac0ca202100232961ec20d5a569cd5a22cb1c8b0c198febca66a60060bd6c692"
+    on_intel do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/taokim/repo-claude/releases/download/v0.1.3/repo-claude_Linux_x86_64.tar.gz"
+        sha256 "abe550136872fbe8f63b79b2674d8c7adb6533acdb3325f8d48a8a0bb034ca65"
 
-      def install
-        bin.install "rc"
+        def install
+          bin.install "rc"
+        end
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/taokim/repo-claude/releases/download/v0.1.2/repo-claude_Linux_arm64.tar.gz"
-      sha256 "9b3a142d778771cab8f37852f6de2ab8812865da50311e08dc1270b414983bce"
+    on_arm do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/taokim/repo-claude/releases/download/v0.1.3/repo-claude_Linux_arm64.tar.gz"
+        sha256 "152461270f851b27e6dfe61a7c0853f83be6a05adb05a27cb1cfe6ecafd4c50e"
 
-      def install
-        bin.install "rc"
+        def install
+          bin.install "rc"
+        end
       end
     end
   end
-
-  depends_on "git"
-  depends_on "repo"
 
   test do
     system "#{bin}/rc", "--version"
