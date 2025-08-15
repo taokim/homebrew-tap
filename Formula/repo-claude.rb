@@ -14,7 +14,7 @@ class RepoClaude < Formula
   on_macos do
     on_intel do
       url "https://github.com/taokim/repo-claude/releases/download/v0.1.3/repo-claude_Darwin_x86_64.tar.gz"
-      sha256 "0d76d12425cf4bb82baa2f541aec496237d3e515619da1c3faa046e99d99c250"
+      sha256 "b2b505d9a4a9d05095e4b0739d8d08992118542db62d15342c4339e269a49ef9"
 
       def install
         bin.install "rc"
@@ -22,7 +22,7 @@ class RepoClaude < Formula
     end
     on_arm do
       url "https://github.com/taokim/repo-claude/releases/download/v0.1.3/repo-claude_Darwin_arm64.tar.gz"
-      sha256 "4f7454d3b0ed4458df7d5f22fbdd437c182bf36384f2f4d38ea3a9441268ffee"
+      sha256 "2ad7933bb66415c8786b43e67e470f3f1cfa7981c132faaa3ddff2205a7c7d82"
 
       def install
         bin.install "rc"
@@ -34,7 +34,7 @@ class RepoClaude < Formula
     on_intel do
       if Hardware::CPU.is_64_bit?
         url "https://github.com/taokim/repo-claude/releases/download/v0.1.3/repo-claude_Linux_x86_64.tar.gz"
-        sha256 "abe550136872fbe8f63b79b2674d8c7adb6533acdb3325f8d48a8a0bb034ca65"
+        sha256 "69f3b11e586b4068d121b7d12987dc54b1cbecbf08c01cf5ced54a1a2919f0f7"
 
         def install
           bin.install "rc"
@@ -44,7 +44,7 @@ class RepoClaude < Formula
     on_arm do
       if Hardware::CPU.is_64_bit?
         url "https://github.com/taokim/repo-claude/releases/download/v0.1.3/repo-claude_Linux_arm64.tar.gz"
-        sha256 "152461270f851b27e6dfe61a7c0853f83be6a05adb05a27cb1cfe6ecafd4c50e"
+        sha256 "58ee56b5e462a487c351cdc94f77263c0807dfaa168e217ae414a4970323a4cb"
 
         def install
           bin.install "rc"
