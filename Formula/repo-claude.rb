@@ -5,23 +5,23 @@
 class RepoClaude < Formula
   desc "Multi-repository orchestration for Claude Code agents"
   homepage "https://github.com/taokim/repo-claude"
-  version "0.4.0"
+  version "0.5.0"
   license "MIT"
 
   depends_on "git"
 
   on_macos do
     on_intel do
-      url "https://github.com/taokim/repo-claude/releases/download/v0.4.0/repo-claude_Darwin_x86_64.tar.gz"
-      sha256 "6e7c68a89c0b7d16c37f5be7fc0ef6301fd8c2ffbb21c6409920c349713e9616"
+      url "https://github.com/taokim/repo-claude/releases/download/v0.5.0/repo-claude_Darwin_x86_64.tar.gz"
+      sha256 "d933fea110f0b9d9d65066e3b134fe739a39563dd4a83f21a8df5cfaf39246dc"
 
       def install
         bin.install "rc"
       end
     end
     on_arm do
-      url "https://github.com/taokim/repo-claude/releases/download/v0.4.0/repo-claude_Darwin_arm64.tar.gz"
-      sha256 "bb9144c4a1d63bac913e770abba0f4efeb7379266726838afaa50e0403e2e649"
+      url "https://github.com/taokim/repo-claude/releases/download/v0.5.0/repo-claude_Darwin_arm64.tar.gz"
+      sha256 "47c2d5d93d7ac4ec0ff31d9f165148bd132c8dc5b62b659d0a986041167e7349"
 
       def install
         bin.install "rc"
@@ -32,8 +32,8 @@ class RepoClaude < Formula
   on_linux do
     on_intel do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/taokim/repo-claude/releases/download/v0.4.0/repo-claude_Linux_x86_64.tar.gz"
-        sha256 "4ca1f4026ee55da7765edbd0ccd2dc0a0cf5d8bd67a60bdbc715a3e0f1f48143"
+        url "https://github.com/taokim/repo-claude/releases/download/v0.5.0/repo-claude_Linux_x86_64.tar.gz"
+        sha256 "094c412ddb139a65c42589e61ee190fd3ab1d3e85b6bea6d562363298c9eddb2"
 
         def install
           bin.install "rc"
@@ -42,8 +42,8 @@ class RepoClaude < Formula
     end
     on_arm do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/taokim/repo-claude/releases/download/v0.4.0/repo-claude_Linux_arm64.tar.gz"
-        sha256 "75c5f152539c57fdc70edff3b5d70a6a2db9f108bb7307679f5789a9e7e17fa5"
+        url "https://github.com/taokim/repo-claude/releases/download/v0.5.0/repo-claude_Linux_arm64.tar.gz"
+        sha256 "d8344c7580689648712a11a313f45fd6e7cfc251f00ead2b0468d815797618a6"
 
         def install
           bin.install "rc"
