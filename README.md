@@ -10,17 +10,30 @@ brew tap taokim/tap
 
 ## Available Formulae
 
-### repo-claude
+### MUNO 🐙
 
-Multi-agent orchestration using Repo tool and Claude Code.
+Multi-repository UNified Orchestration - Manage multiple git repositories with monorepo-like convenience.
 
 ```bash
-brew install taokim/tap/repo-claude
+brew install taokim/tap/muno
 ```
 
-Or install directly:
+**Features:**
+- 🌳 Tree-based navigation for multi-repository workspaces
+- 💤 Lazy loading of repositories
+- 📍 CWD-first resolution for all operations
+- 🔧 Native Git operations at any tree level
+- 🤖 AI-powered sessions with Claude Code
+- ⚡ Single binary with no runtime dependencies
+
+**Repository:** https://github.com/taokim/muno
+
+### repo-claude (Legacy)
+
+The original name for MUNO. This formula is deprecated - please use `muno` instead.
 
 ```bash
+# Deprecated - use muno instead
 brew install taokim/tap/repo-claude
 ```
 
