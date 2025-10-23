@@ -5,21 +5,21 @@
 class Muno < Formula
   desc "Multi-repository UNified Orchestration for Claude Code agents"
   homepage "https://github.com/taokim/muno"
-  version "1.0.6"
+  version "1.1.0"
   license "MIT"
 
   on_macos do
     on_intel do
-      url "https://github.com/taokim/muno/releases/download/v1.0.6/muno_Darwin_x86_64.tar.gz"
-      sha256 "4ab33f20e10db5be7eabef4b14533627c1aa0fad314d333597a65bf8b00910ec"
+      url "https://github.com/taokim/muno/releases/download/v1.1.0/muno_Darwin_x86_64.tar.gz"
+      sha256 "6dc32f944d333ef42cc53978caf7c3253cbebc25d0a9e8591d64311bc7d59539"
 
       def install
         bin.install "muno"
       end
     end
     on_arm do
-      url "https://github.com/taokim/muno/releases/download/v1.0.6/muno_Darwin_arm64.tar.gz"
-      sha256 "4f6d43436efa3630fc85bbf1fbc1ee70bd560dd88637145d9664ad96c7c110ec"
+      url "https://github.com/taokim/muno/releases/download/v1.1.0/muno_Darwin_arm64.tar.gz"
+      sha256 "a2278e11ca67bebe84631c39f462932197a70f670838f2689e1d5394ad6fc867"
 
       def install
         bin.install "muno"
@@ -30,8 +30,8 @@ class Muno < Formula
   on_linux do
     on_intel do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/taokim/muno/releases/download/v1.0.6/muno_Linux_x86_64.tar.gz"
-        sha256 "0aa5f3738643c2cb194ef9928bd8ed6912119e8aad59feea1a3abb36e485df17"
+        url "https://github.com/taokim/muno/releases/download/v1.1.0/muno_Linux_x86_64.tar.gz"
+        sha256 "6578086e885c8671eefcd8131c44f56264d550bd851061877c1b65a916fe42f1"
 
         def install
           bin.install "muno"
@@ -40,8 +40,8 @@ class Muno < Formula
     end
     on_arm do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/taokim/muno/releases/download/v1.0.6/muno_Linux_arm64.tar.gz"
-        sha256 "1852b489d3777a6a21bb7befa80d636fae2312ff86faf17be7c781016b483f3c"
+        url "https://github.com/taokim/muno/releases/download/v1.1.0/muno_Linux_arm64.tar.gz"
+        sha256 "8f93ffe056a4ff425b67bed54c6db412196563ca20015d4a27c57373f7cc3df3"
 
         def install
           bin.install "muno"
