@@ -5,24 +5,48 @@
 class Muno < Formula
   desc "Multi-repository UNified Orchestration for Claude Code agents"
   homepage "https://github.com/taokim/muno"
-  version "1.1.2"
+  version "1.1.3"
   license "MIT"
 
   on_macos do
     on_intel do
-      url "https://github.com/taokim/muno/releases/download/v1.1.2/muno_Darwin_x86_64.tar.gz"
-      sha256 "7ec5897deac249fe42191f6eb438a547c83b108534b2506430a6758c720757fa"
+      url "https://github.com/taokim/muno/releases/download/v1.1.3/muno_Darwin_x86_64.tar.gz"
+      sha256 "c89e083b37c209008bbd2d8ad3102f3af296e52eb7d345845c610e2db35e85cb"
 
       def install
         bin.install "muno"
+
+        # Download and install completions from source
+        system "curl", "-L", "-o", "completions.tar.gz",
+               "https://github.com/taokim/muno/archive/v1.1.3.tar.gz"
+        system "tar", "-xzf", "completions.tar.gz", "--strip-components=1"
+
+        # Install completions if they exist
+        if Dir.exist?("completions")
+          bash_completion.install "completions/muno.bash" => "muno"
+          zsh_completion.install "completions/muno.zsh" => "_muno"
+          fish_completion.install "completions/muno.fish" => "muno.fish"
+        end
       end
     end
     on_arm do
-      url "https://github.com/taokim/muno/releases/download/v1.1.2/muno_Darwin_arm64.tar.gz"
-      sha256 "e6f7800878b90bdd991bfd0921a052a8ca5e5778ff0b036a8532607b89db0fa0"
+      url "https://github.com/taokim/muno/releases/download/v1.1.3/muno_Darwin_arm64.tar.gz"
+      sha256 "15061787a6de1e9815a8b41f472be88244c342e6ae0e6675f8e0913107843668"
 
       def install
         bin.install "muno"
+
+        # Download and install completions from source
+        system "curl", "-L", "-o", "completions.tar.gz",
+               "https://github.com/taokim/muno/archive/v1.1.3.tar.gz"
+        system "tar", "-xzf", "completions.tar.gz", "--strip-components=1"
+
+        # Install completions if they exist
+        if Dir.exist?("completions")
+          bash_completion.install "completions/muno.bash" => "muno"
+          zsh_completion.install "completions/muno.zsh" => "_muno"
+          fish_completion.install "completions/muno.fish" => "muno.fish"
+        end
       end
     end
   end
@@ -30,27 +54,69 @@ class Muno < Formula
   on_linux do
     on_intel do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/taokim/muno/releases/download/v1.1.2/muno_Linux_x86_64.tar.gz"
-        sha256 "dbf1a853c283121ae463de58408535143ab96be178de50dc85fef69272343702"
+        url "https://github.com/taokim/muno/releases/download/v1.1.3/muno_Linux_x86_64.tar.gz"
+        sha256 "98fb9d2364f3e01461d9b40c3027eaa1175ed3872b20ff3446b79a1324626729"
 
         def install
           bin.install "muno"
+
+          # Download and install completions from source
+          system "curl", "-L", "-o", "completions.tar.gz",
+                 "https://github.com/taokim/muno/archive/v1.1.3.tar.gz"
+          system "tar", "-xzf", "completions.tar.gz", "--strip-components=1"
+
+          # Install completions if they exist
+          if Dir.exist?("completions")
+            bash_completion.install "completions/muno.bash" => "muno"
+            zsh_completion.install "completions/muno.zsh" => "_muno"
+            fish_completion.install "completions/muno.fish" => "muno.fish"
+          end
         end
       end
     end
     on_arm do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/taokim/muno/releases/download/v1.1.2/muno_Linux_arm64.tar.gz"
-        sha256 "d2349e1d6f1c5e8a6e69162908adca3fc55f7632d4146b8db5949b21feb2463e"
+        url "https://github.com/taokim/muno/releases/download/v1.1.3/muno_Linux_arm64.tar.gz"
+        sha256 "96a6d9e2738b21e2e354ef69dfbc2a2aa166d4aeb3fb57a9e07c2afc31c7a5e8"
 
         def install
           bin.install "muno"
+
+          # Download and install completions from source
+          system "curl", "-L", "-o", "completions.tar.gz",
+                 "https://github.com/taokim/muno/archive/v1.1.3.tar.gz"
+          system "tar", "-xzf", "completions.tar.gz", "--strip-components=1"
+
+          # Install completions if they exist
+          if Dir.exist?("completions")
+            bash_completion.install "completions/muno.bash" => "muno"
+            zsh_completion.install "completions/muno.zsh" => "_muno"
+            fish_completion.install "completions/muno.fish" => "muno.fish"
+          end
         end
       end
     end
   end
 
+  def caveats
+    <<~EOS
+      To use the mcd function for easy navigation, add this to your shell config:
+
+      For bash/zsh (~/.bashrc or ~/.zshrc):
+        mcd() { cd "$(muno path "$@")" && pwd; }
+
+      For fish (~/.config/fish/config.fish):
+        function mcd
+          cd (muno path $argv); and pwd
+        end
+
+      Shell completions have been installed and will be available after restarting your shell
+      or sourcing your shell configuration file.
+    EOS
+  end
+
   test do
     system "#{bin}/muno", "--version"
+    assert_match "muno", shell_output("#{bin}/muno --help")
   end
 end
