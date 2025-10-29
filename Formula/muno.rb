@@ -5,20 +5,20 @@
 class Muno < Formula
   desc "Multi-repository UNified Orchestration for Claude Code agents"
   homepage "https://github.com/taokim/muno"
-  version "1.1.3"
+  version "1.1.4"
   license "MIT"
 
   on_macos do
     on_intel do
-      url "https://github.com/taokim/muno/releases/download/v1.1.3/muno_Darwin_x86_64.tar.gz"
-      sha256 "c89e083b37c209008bbd2d8ad3102f3af296e52eb7d345845c610e2db35e85cb"
+      url "https://github.com/taokim/muno/releases/download/v1.1.4/muno_Darwin_x86_64.tar.gz"
+      sha256 "bb6671bb5dbe44a9a798529e693868c1c98a075ef3c7bc676a3d9dd69a4e47fb"
 
       def install
         bin.install "muno"
 
         # Download and install completions from source
         system "curl", "-L", "-o", "completions.tar.gz",
-               "https://github.com/taokim/muno/archive/v1.1.3.tar.gz"
+               "https://github.com/taokim/muno/archive/v1.1.4.tar.gz"
         system "tar", "-xzf", "completions.tar.gz", "--strip-components=1"
 
         # Install completions if they exist
@@ -30,15 +30,15 @@ class Muno < Formula
       end
     end
     on_arm do
-      url "https://github.com/taokim/muno/releases/download/v1.1.3/muno_Darwin_arm64.tar.gz"
-      sha256 "15061787a6de1e9815a8b41f472be88244c342e6ae0e6675f8e0913107843668"
+      url "https://github.com/taokim/muno/releases/download/v1.1.4/muno_Darwin_arm64.tar.gz"
+      sha256 "c3c8e67b82da355b14a8f24d974a8fa09624352619b07e0f884fede4318731da"
 
       def install
         bin.install "muno"
 
         # Download and install completions from source
         system "curl", "-L", "-o", "completions.tar.gz",
-               "https://github.com/taokim/muno/archive/v1.1.3.tar.gz"
+               "https://github.com/taokim/muno/archive/v1.1.4.tar.gz"
         system "tar", "-xzf", "completions.tar.gz", "--strip-components=1"
 
         # Install completions if they exist
@@ -54,15 +54,15 @@ class Muno < Formula
   on_linux do
     on_intel do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/taokim/muno/releases/download/v1.1.3/muno_Linux_x86_64.tar.gz"
-        sha256 "98fb9d2364f3e01461d9b40c3027eaa1175ed3872b20ff3446b79a1324626729"
+        url "https://github.com/taokim/muno/releases/download/v1.1.4/muno_Linux_x86_64.tar.gz"
+        sha256 "32874afa650e29d04193aea7e9ee210a13e5a03243ce6449ce22fea2f06ce1d6"
 
         def install
           bin.install "muno"
 
           # Download and install completions from source
           system "curl", "-L", "-o", "completions.tar.gz",
-                 "https://github.com/taokim/muno/archive/v1.1.3.tar.gz"
+                 "https://github.com/taokim/muno/archive/v1.1.4.tar.gz"
           system "tar", "-xzf", "completions.tar.gz", "--strip-components=1"
 
           # Install completions if they exist
@@ -76,15 +76,15 @@ class Muno < Formula
     end
     on_arm do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/taokim/muno/releases/download/v1.1.3/muno_Linux_arm64.tar.gz"
-        sha256 "96a6d9e2738b21e2e354ef69dfbc2a2aa166d4aeb3fb57a9e07c2afc31c7a5e8"
+        url "https://github.com/taokim/muno/releases/download/v1.1.4/muno_Linux_arm64.tar.gz"
+        sha256 "ee0d798e2788970c34cb81b4d6b8c74b5efc50d12ff286929166974091b131e6"
 
         def install
           bin.install "muno"
 
           # Download and install completions from source
           system "curl", "-L", "-o", "completions.tar.gz",
-                 "https://github.com/taokim/muno/archive/v1.1.3.tar.gz"
+                 "https://github.com/taokim/muno/archive/v1.1.4.tar.gz"
           system "tar", "-xzf", "completions.tar.gz", "--strip-components=1"
 
           # Install completions if they exist
